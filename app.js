@@ -1,25 +1,20 @@
-var http = require('http');
-var fs = require('fs');
+var express=require("express");
+var bodyParser=require('body-parser');
+var app = express();
+var authenticateController=require('./controllers/authenticate-controllers');
+var registerController=require('./controllers/registration-controllers');
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
-var server = http.createServer(function(req, res){
-  console.log('request was made :' + req.url);
-if(req.url === '/home' || req.url === '/'){
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  fs.createReadStream(__dirname + '/index.html').pipe(res);
-} else if(req.url === '/contact'){
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  fs.createReadStream(__dirname + '/contact.html').pipe(res);
-}else if(req.url === '/donasi'){
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  fs.createReadStream(__dirname + '/donasi.html').pipe(res);
-}else if(req.url === '/relawan'){
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  fs.createReadStream(__dirname + '/relawan.html').pipe(res);
-}else{
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  fs.createReadStream(__dirname + '/404.html').pipe(res);
-}
-});
 
-server.listen(3000, '127.0.0.1');
-console.log('cogratulation ! Now listening to port 3000');
+/* route to handle login and registration */
+
+app.post('/authenticate-controllers',authenticateController.authenticate);
+app.post('/registration-controllers', registerController.register);	
+
+app.get('/',function(req, res){   
+      res.sendFile(__dirname + '/index.html');
+    });
+	
+
+app.listen(8012);
