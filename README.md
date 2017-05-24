@@ -1,1 +1,1 @@
-Panti app
+Panti App
