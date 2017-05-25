@@ -6,6 +6,8 @@ module.exports.register=function(req,res){
         "name":req.body.name,
         "email":req.body.email,
         "password":req.body.password,
+		"no_hp":req.body.no_hp,
+		"alamat":req.body.alamat,
         "created_at":today,
         "updated_at":today
     }
