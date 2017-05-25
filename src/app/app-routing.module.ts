@@ -6,7 +6,7 @@ import {FormControl,FormGroup} from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { DonasiComponent } from './donasi/donasi.component';
@@ -22,31 +22,64 @@ import { RelawanDetailComponent } from './relawan-detail/relawan-detail.componen
 import { DonasiDetailComponent } from './donasi-detail/donasi-detail.component';
 import { RegispantiComponent } from './regispanti/regispanti.component';
 
-import { AppRoutingModule } from './app-routing.module';
+const appRoutes: Routes = [
+{ path: '', redirectTo: 'home', pathMatch: 'full' },
+    { 
+      path:'home', 
+      component:HomeComponent
+    },
+    { 
+      path:'donasi', 
+      component:DonasiComponent
+    },
+    { 
+      path:'donasi-list', 
+      component:DonasiListComponent
+    },
+    { 
+      path:'donasi-detail', 
+      component:DonasiDetailComponent
+    },
+    { 
+      path:'relawan', 
+      component:RelawanComponent
+    },
+    { 
+      path:'relawan-list', 
+      component:RelawanListComponent
+    },
+    { 
+      path:'relawan-detail', 
+      component:RelawanDetailComponent
+    },
+    { 
+      path:'login', 
+      component:LoginComponent
+    },
+    { 
+      path:'register', 
+      component:RegisterComponent
+    },
+    { 
+      path:'panti-list', 
+      component:PantiListComponent
+    },
+    { 
+      path:'panti-detail', 
+      component:PantiDetailComponent
+    },
+    { 
+      path:'regispanti', 
+      component:RegispantiComponent
+    },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DonasiComponent,
-    RelawanComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    PantiListComponent,
-    PantiDetailComponent,
-    DonasiListComponent,
-    RelawanListComponent,
-    RelawanDetailComponent,
-    DonasiDetailComponent,
-    RegispantiComponent
-  ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    RouterModule
+  ]
 })
-export class AppModule { }
+export class AppRoutingModule {}
