@@ -1,7 +1,7 @@
 var connection = require('../config');
 module.exports.register=function(req,res){
     var today = new Date();
-	
+
     var users={
         "name":req.body.name,
         "email":req.body.email,

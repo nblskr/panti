@@ -6,15 +6,13 @@ var registerController=require('./controllers/registration-controllers');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-
 /* route to handle login and registration */
 
 app.post('/authenticate-controllers',authenticateController.authenticate);
-app.post('/registration-controllers', registerController.register);	
+app.post('/registration-controllers', registerController.register);
 
-app.get('/',function(req, res){   
+app.get('/',function(req, res){
       res.sendFile(__dirname + '/index.html');
     });
-	
 
 app.listen(8012);
