@@ -4,10 +4,10 @@ module.exports.donasi=function(req,res){
       var donasi_uang={
           "id_donasi":req.body.id_donasi,
           "id_user":req.body.id_user,
-          "jenisdonasi":req.body.Jenis Donasi,
-  		    "jumlahdonasi":req.body.Jumlah Donasi,
-  		    "banyakbarang":req.body.Banyak barang,
-  		    "namabarang":req.body.Nama barang,
+          "jenisdonasi":req.body.JenisDonasi,
+  		    "jumlahdonasi":req.body.JumlahDonasi,
+  		    "banyakbarang":req.body.Banyakbarang,
+  		    "namabarang":req.body.Namabarang,
       }
       connection.query('INSERT INTO donasi_uang SET ?',donasi_uang, function (error, results, fields) {
         if (error) {
