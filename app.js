@@ -9,15 +9,14 @@ app.use(bodyParser.json());
 
 /* route to handle login and registration */
 
-app.post('/authenticate-controllers',authenticateController.authenticate);
+//app.post('/authenticate-controllers',authenticateController.authenticate);
 app.post('/registration-controllers', registerController.register);
-<<<<<<< HEAD
-=======
-app.post('/regispanti-controllers', regispantiController.register);	
->>>>>>> 559b97fe48247ef8c0a074d4174844572c6087c6
-
+//<<<<<<< HEAD
+//=======
+//app.post('/regispanti-controllers', regispantiController.register);
+//>>>>>>> 559b97fe48247ef8c0a074d4174844572c6087c6
 app.get('/',function(req, res){
-      res.sendFile(__dirname + '/index.html');
+      res.sendFile(__dirname + '/src/app/register/register.component.ts');
     });
 
 app.listen(8012);

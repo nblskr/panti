@@ -1,16 +1,16 @@
 var connection = require('../config');
 module.exports.register=function(req,res){
     var today = new Date();
-	
+
     var rmpanti={
         "nama_panti":req.body.nama_panti,
         "email_panti":req.body.email_panti,
         "password_panti":req.body.password_panti,
-		"alamat_panti":req.body.alamat_panti,
-		"kondisi_panti":req.body.kondisi_panti,
-		"jml_penghuni":req.body.jml_penghuni,
-		"nama_pemilik":req.body.nama_pemilik,
-		"kontak_panti":req.body.kontak_panti,
+		    "alamat_panti":req.body.alamat_panti,
+		    "kondisi_panti":req.body.kondisi_panti,
+		    "jml_penghuni":req.body.jml_penghuni,
+		    "nama_pemilik":req.body.nama_pemilik,
+		    "kontak_panti":req.body.kontak_panti,
         "created_at":today,
         "updated_at":today,
     }
