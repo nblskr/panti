@@ -2,12 +2,12 @@ var connection = require('./../config');
 module.exports.donasi=function(req,res){
       var today = new Date();
       var donasi_uang={
-          "id_donasi":req.body.nama_panti,
-          "id_user":req.body.email_panti,
-          "jenisdonasi":req.body.password_panti,
-  		    "jumlahdonasi":req.body.alamat_panti,
-  		    "banyakbarang":req.body.kondisi_panti,
-  		    "namabarang":req.body.jml_penghuni,
+          "id_donasi":req.body.id_donasi,
+          "id_user":req.body.id_user,
+          "jenisdonasi":req.body.Jenis Donasi,
+  		    "jumlahdonasi":req.body.Jumlah Donasi,
+  		    "banyakbarang":req.body.Banyak barang,
+  		    "namabarang":req.body.Nama barang,
       }
       connection.query('INSERT INTO donasi_uang SET ?',donasi_uang, function (error, results, fields) {
         if (error) {
